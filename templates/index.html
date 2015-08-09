@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+<title>Color Picker</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+
+<body>
+
+<h1>Color Picker</h1>
+
+<div class="row">
+	<div class="col-xs-1">
+		{% for color in old_palette %}
+			<div class="color-cell"
+				 style="background-color: rgb( {{ color[0] }},
+											   {{ color[1] }},
+											   {{ color[2] }});">
+			</div>
+		{% endfor %}
+	</div>
+
+	<div class="col-xs-1">
+		{% for color in new_palette %}
+			<div class="color-cell color-{{ loop.index }}"
+				 style="background-color: hsla( {{ color[0] }},
+											   {{ color[1] }}%,
+											   {{ color[2] }}%,
+											   {{ color[3] }})">
+			 </div>
+		{% endfor %}
+	</div>
+
+	<div class="col-xs-4">
+		{% include "form-picker.html" %}
+	</div>
+	<div class="col-xs-6">
+		<button class="btn btn-default make-gif">Make GIF</button>
+		<button class="btn btn-default save-palette">Save Palette</button>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="static/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<form class="form-inline" action="{{ url_for('make_image') }}" method="post">
+{% for color in new_palette %}
+	<div id="color-{{ loop.index }}" class="form-inline color-row">
+		<input
+			name="h"
+			type="text"
+			class="form-control"
+			value="{{ color[0] }}">
+		<input
+			name="s"
+			type="text"
+			class="form-control"
+			value="{{ color[1] }}">
+		<input
+			name="l"
+			type="text"
+			class="form-control"
+			value="{{ color[2] }}">
+		<input
+			name="a"
+			type="text"
+			class="form-control"
+			value="{{ color[3] }}">
+	</div>
+{% endfor %}
+</form>

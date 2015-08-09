@@ -1,0 +1,21 @@
+.form-control {
+	width: 50px !important;
+	height: 30px;
+}
+
+h1 {
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.color-row, .color-cell {
+	height: 30px;
+	margin: 10px;
+}
+
+.color-cell {
+	width: 40px;
+	margin: 10px auto;
+	border: 1px solid #f9f9f9;
+}
+
