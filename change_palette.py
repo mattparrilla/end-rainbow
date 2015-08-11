@@ -1,4 +1,5 @@
 from PIL import Image
+import colorsys
 
 def change_palette(image, old_palette, new_palette):
     """Take a path to a paletted image with known colors and change palettes"""
@@ -13,17 +14,23 @@ def change_palette(image, old_palette, new_palette):
         rgb = (palette[i], palette[i + 1], palette[i + 2])
         if rgb in old_palette:
             palette_index = old_palette.index(rgb)
-            new_color = new_palette[palette_index]
-            for k in range(3):
-                palette[i + k] = new_color[k]
+            if palette_index < len(new_palette):
+                new_color = new_palette[palette_index]
+                for k in range(3):
+                    palette[i + k] = new_color[k]
 
     image.putpalette(palette)
     return image
 
+def hsla_to_rgb(palette):
+    """Take array of hsla colors, convert to RGB"""
 
-#TODO: make this
-def build_palette(input_palette, bins):
-    """Take a palette of variable length and return a palette of length
-    bins based off of the inputted palette"""
+    new_palette_rgb = []
 
-    return new_palette
+    for color in palette:
+        normalized_color = colorsys.hls_to_rgb(
+            color[0] / 360.0, color[2] / 100.0, color[1] / 100.0)
+        scaled_palette = [int(i * 255) for i in normalized_color]
+        new_palette_rgb.append(scaled_palette)
+
+    return new_palette_rgb

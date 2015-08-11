@@ -4,8 +4,20 @@
 }
 
 h1 {
-	margin-bottom: 30px;
-	text-align: center;
+	margin: 0;
+	z-index: 2;
+	font-family: roboto;
+	font-weight: 500;
+	font-size: 100px;
+	padding: 20px;
+	color: white;
+	text-shadow: 1px 1px 4px #bbb;
+}
+
+h1 span {
+	float: right;
+	font-size: 72px;
+	padding-top: 20px;
 }
 
 .color-row, .color-cell {
@@ -19,3 +31,34 @@ h1 {
 	border: 1px solid #f9f9f9;
 }
 
+.btn {
+	margin: 10px 30px;
+}
+
+.color-row input:last-child {
+	display: none;
+}
+
+.header {
+	position: relative;
+	height: 103px;
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+
+.rainbow {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: -10;
+	font-family: empty;
+	background: black;
+}
+
+.color-pane {
+	width: 7.14%;
+	display: inline-block;
+	vertical-align: top;
+	height: 150px;
+}
