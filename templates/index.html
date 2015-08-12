@@ -41,10 +41,21 @@
 		{% endfor %}
 	</div>
 
+	<div class="col-xs-1">
+		{% for color in new_palette %}
+			<div class="color-cell color-{{ loop.index0 }}"
+				 style="background-color: hsla( {{ color[0] }},
+											   0%,
+											   {{ color[2] }}%,
+											   {{ color[3] }})">
+			 </div>
+		{% endfor %}
+	</div>
+
 	<div class="col-xs-2">
 		{% include "form-picker.html" %}
 	</div>
-	<div class="col-xs-8">
+	<div class="col-xs-6">
 		<button class="btn btn-default make-gif">Make GIF</button>
 		<button class="btn btn-default save-palette">Save Palette</button>
 

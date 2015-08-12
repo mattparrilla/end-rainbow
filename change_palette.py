@@ -20,7 +20,9 @@ def change_palette(image, old_palette, new_palette):
                     palette[i + k] = new_color[k]
 
     image.putpalette(palette)
+
     return image
+
 
 def hsla_to_rgb(palette):
     """Take array of hsla colors, convert to RGB"""
