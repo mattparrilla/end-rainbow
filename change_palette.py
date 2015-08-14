@@ -1,5 +1,8 @@
 from PIL import Image
+from palettes.test import new_palette
+from palettes.nws import nws_palette
 import colorsys
+
 
 def change_palette(image, old_palette, new_palette):
     """Take a path to a paletted image with known colors and change palettes"""
@@ -36,3 +39,14 @@ def hsla_to_rgb(palette):
         new_palette_rgb.append(scaled_palette)
 
     return new_palette_rgb
+
+
+def make_sample_image(palette):
+
+    old_gif = 'static/test-radar2.gif'
+    new_gif = 'static/new-radar.gif'
+    image = Image.open(old_gif)
+    new_im = change_palette(image, nws_palette('rgb'), new_palette('rgb'))
+    new_im.save(new_gif, "GIF")
+
+    return new_gif
