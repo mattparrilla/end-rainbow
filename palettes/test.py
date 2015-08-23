@@ -18,7 +18,7 @@ def new_palette(format):
         (285, 100, 35, 1),
         (270, 100, 30, 1),
         (255, 100, 25, 1)
-        ]
+    ]
 
     if format == 'hsla':
         return palette
@@ -31,7 +31,6 @@ def new_palette(format):
                 color[0] / 360.0, color[2] / 100.0, color[1] / 100.0)
             scaled_palette = [int(i * 255) for i in normalized_color]
             new_palette_rgb.append(scaled_palette)
-
 
         return new_palette_rgb
 

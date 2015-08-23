@@ -8,8 +8,30 @@ import json
 app = Flask(__name__)
 
 
+@app.route('/')
+def index():
+    """Main view, the only view serving HTML"""
+
+    old_gif = 'static/test-radar2.gif'
+    new_gif = 'static/new-radar.gif'
+    image = Image.open(old_gif)
+    new_im = change_palette(image, nws_palette('rgb'), new_palette('rgb'))
+    new_im.save(new_gif, "GIF")
+
+    return render_template('index.html',
+        old_gif=old_gif,
+        new_gif=new_gif,
+        old_palette=nws_palette('rgb'),
+        new_palette=new_palette('hsla'))
+
+
 @app.route('/palette/', methods=['GET', 'POST'])
 def palette():
+    """GET requests are returned a palette in JSON
+       POST expects to receive a JSON palette, which is then
+       used to generate a sample image with the palette and return
+       a cache-busting path to the image."""
+
     if request.method == 'GET':  # if initial request, GET
         # create palettes, images
         return json.dumps({
@@ -27,25 +49,12 @@ def palette():
             'imageSrc': image_src
         })
     else:
+        #TODO: return something better
         return "Shit!"
 
     # take palette, generate image
 
 
-@app.route('/')
-def index():
-
-    old_gif = 'static/test-radar2.gif'
-    new_gif = 'static/new-radar.gif'
-    image = Image.open(old_gif)
-    new_im = change_palette(image, nws_palette('rgb'), new_palette('rgb'))
-    new_im.save(new_gif, "GIF")
-
-    return render_template('index.html',
-        old_gif=old_gif,
-        new_gif=new_gif,
-        old_palette=nws_palette('rgb'),
-        new_palette=new_palette('hsla'))
 #
 # def build_palettes(data):
 #   number_of_colors = len(data.form) / 4

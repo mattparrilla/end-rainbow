@@ -1,4 +1,5 @@
-var Palette = require('./Palette'),
+var React = require('react'),
+	Palette = require('./Palette'),
 	PaletteForm = require('./PaletteForm');
 
 var ColorPicker = React.createClass({
@@ -44,17 +45,18 @@ var ColorPicker = React.createClass({
 
 	render: function() {
 		return (
-			<div className="col-xs-1">
-				<Palette palette={this.rainbowPalette} />
-			</div>
-			<div className="col-xs-1">
-				<Palette palette={this.newPalette} />
-			</div>
-			<div className="col-xs-1">
-				<Palette palette={this.newPalette} noChroma={true} />
-			</div>
-			<div className="col-xs-4">
-				<PaletteForm palette={this.newPalette} />
+			<div className="color-picker">
+				<div className="col-xs-1">
+					<Palette palette={this.rainbowPalette} />
+				</div>
+				<div className="col-xs-1">
+					<Palette palette={this.newPalette} />
+				</div>
+				<div className="col-xs-1">
+					<Palette palette={this.newPalette} noChroma={true} />
+				</div>
+				<div className="col-xs-4">
+				</div>
 			</div>
 		);
 	}

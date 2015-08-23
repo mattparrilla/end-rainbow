@@ -1,28 +1,32 @@
-var React = require('react');
+var React = require('react'),
+	Palette = require('./Palette'),
+	HslForm = require('./HslForm');
 
-var PaletteForm = React.createClass({
+var PalettePicker = React.createClass({
 	//Used for type validation
-	propTypes: {
-		value: React.PropTypes.number,
-		onChange: React.PropTypes.func
-	},
-	//gets called by onChange prop when value changes
-	//this is not a special React function, just one we created
-	//to handle a change to the form
-	handleChange: function(e) {
-		this.props.onChange(e.target.value);
-	},
+//	propTypes: {
+//		value: React.PropTypes.number,
+//		onChange: React.PropTypes.func
+//	},
+//	//gets called by onChange prop when value changes
+//	//this is not a special React function, just one we created
+//	//to handle a change to the form
+//	handleChange: function(e) {
+//		this.props.onChange(e.target.value);
+//	},
 	render: function() {
 		return (
-			this.props.data.colors.map(function(color) {
-				return (
-					<ColorSlider onChange={this.handleChange} value={color.h} type="h" />
-					<ColorSlider onChange={this.handleChange} value={color.s} type="s" />
-					<ColorSlider onChange={this.handleChange} value={color.l} type="l" />
-				)
-			})
+			<div>
+				<div className="col-xs-1">
+					<Palette palette={this.props.palette} colorSpace="hsl" noHue={true} />
+				</div>
+				<div className="col-xs-1">
+					<Palette palette={this.props.palette} colorSpace="hsl" />
+				</div>
+				<HslForm palette={this.props.palette} />
+			</div>
 		);
 	}
 });
 
-module.exports = BlueBird;
+module.exports = PalettePicker;

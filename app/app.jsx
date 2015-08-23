@@ -1,11 +1,7 @@
 var React = require('react'),
-	ColorPicker = require('./components/ColorPicker'),
-	GifSamples = require('./components/GifSamples');
+	PalettePickerContainer = require('./components/PalettePickerContainer');
 
 React.render(
-	<div>
-		<ColorPicker />
-		<GifSamples />
-	</div>,
+	<PalettePickerContainer></PalettePickerContainer>,
 	document.getElementById('end-rainbow')
 )
