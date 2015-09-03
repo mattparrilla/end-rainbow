@@ -1,64 +1,84 @@
 .form-control {
-	width: 50px !important;
-	height: 30px;
+    width: 50px !important;
+    height: 30px;
 }
 
 h1 {
-	margin: 0;
-	z-index: 2;
-	font-family: roboto;
-	font-weight: 500;
-	font-size: 100px;
-	padding: 20px;
-	color: white;
-	text-shadow: 1px 1px 4px #bbb;
+    margin: 0;
+    z-index: 2;
+    font-family: roboto;
+    font-weight: 500;
+    font-size: 100px;
+    padding: 20px;
+    color: white;
+    text-shadow: 1px 1px 4px #bbb;
 }
 
 h1 span {
-	float: right;
-	font-size: 72px;
-	padding-top: 20px;
+    float: right;
+    font-size: 72px;
+    padding-top: 20px;
 }
 
 .color-row, .color-cell {
-	height: 30px;
-	margin: 10px;
+    height: 30px;
+    margin: 10px;
 }
 
 .color-cell {
-	width: 40px;
-	margin: 10px auto;
-	border: 1px solid #f9f9f9;
+    width: 40px;
+    margin: 10px auto;
+    border: 1px solid #f9f9f9;
 }
 
 .btn {
-	margin: 10px 30px;
+    margin: 10px 30px;
 }
 
 .color-row input:last-child {
-	display: none;
+    display: none;
 }
 
 .header {
-	position: relative;
-	height: 103px;
-	overflow: hidden;
-	margin-bottom: 50px;
+    position: relative;
+    height: 103px;
+    overflow: hidden;
+    margin-bottom: 50px;
 }
 
 .rainbow {
-	position: absolute;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: -10;
-	font-family: empty;
-	background: black;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    font-family: empty;
+    background: black;
 }
 
 .color-pane {
-	width: 7.14%;
-	display: inline-block;
-	vertical-align: top;
-	height: 150px;
+    width: 7.14%;
+    display: inline-block;
+    vertical-align: top;
+    height: 150px;
 }
+
+.hsl-selector .input-group {
+    display: inline-block;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.input-group input {
+    margin: 0 10px;
+    width: 90%;
+    display: block;
+}
+
+.hsl-labels {
+    margin-top: -20px;
+    text-align: center;
+}
+

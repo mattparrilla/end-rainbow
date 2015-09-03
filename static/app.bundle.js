@@ -45,11 +45,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React = __webpack_require__(1),
-		PalettePickerContainer = __webpack_require__(157);
+	    PalettePickerContainer = __webpack_require__(157);
 
 	React.render(
-		React.createElement(PalettePickerContainer, null),
-		document.getElementById('end-rainbow')
+	    React.createElement(PalettePickerContainer, null),
+	    document.getElementById('end-rainbow')
 	)
 
 
@@ -20433,103 +20433,102 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React = __webpack_require__(1),
-		Palette = __webpack_require__(158),
-		PalettePicker = __webpack_require__(159);
+	    Palette = __webpack_require__(158),
+	    PalettePicker = __webpack_require__(159);
 
 
 	var PalettePickerContainer = React.createClass({displayName: "PalettePickerContainer",
 
-		//getInitialState is invoked before the component is mounted
-		//don't put props in here
-		getInitialState: function() {
+	    //getInitialState is invoked before the component is mounted
+	    //don't put props in here
+	    getInitialState: function() {
 
-			return {
-				// return data
-			};
-		},
-		nwsPalette: [
-			[152, 84, 198],
-			[248, 0, 253],
-			[188, 0, 0],
-			[212, 0, 0],
-			[253, 0, 0],
-			[253, 139, 0],
-			[229, 188, 0],
-			[253, 248, 2],
-			[0, 142, 0],
-			[1, 197, 1],
-			[2, 253, 2],
-			[3, 0, 244],
-			[1, 159, 244],
-			[4, 233, 231],
-			[225, 225, 225],
-			[227, 227, 227],
-			[230, 230, 230],
-			[232, 232, 232],
-			[235, 235, 235],
-			[238, 238, 238],
-			[240, 240, 240],
-			[255, 255, 255]
-		],
+	        return {
+	            newPalette: [
+	                [66, 100, 100],
+	                [66, 100, 95],
+	                [66, 100, 90],
+	                [66, 100, 85],
+	                [66, 100, 80],
+	                [16, 100, 75],
+	                [360, 100, 60],
+	                [345, 100, 55],
+	                [330, 100, 50],
+	                [315, 100, 45],
+	                [300, 100, 40],
+	                [285, 100, 35],
+	                [270, 100, 30],
+	                [255, 100, 25]
+	            ]
+	        };
+	    },
+	    nwsPalette: [
+	        [152, 84, 198],
+	        [248, 0, 253],
+	        [188, 0, 0],
+	        [212, 0, 0],
+	        [253, 0, 0],
+	        [253, 139, 0],
+	        [229, 188, 0],
+	        [253, 248, 2],
+	        [0, 142, 0],
+	        [1, 197],
+	        [2, 253, 2],
+	        [3, 0, 244],
+	        [1, 159, 244],
+	        [4, 233, 231],
+	        [225, 225, 225],
+	        [227, 227, 227],
+	        [230, 230, 230],
+	        [232, 232, 232],
+	        [235, 235, 235],
+	        [238, 238, 238],
+	        [240, 240, 240],
+	        [255, 255, 255]
+	    ],
 
-		newPalette: [
-	        [66, 100, 100, 1],
-	        [66, 100, 95, 1],
-	        [66, 100, 90, 1],
-	        [66, 100, 85, 1],
-	        [66, 100, 80, 1],
-	        [16, 100, 75, 1],
-	        [360, 100, 60, 1],
-	        [345, 100, 55, 1],
-	        [330, 100, 50, 1],
-	        [315, 100, 45, 1],
-	        [300, 100, 40, 1],
-	        [285, 100, 35, 1],
-	        [270, 100, 30, 1],
-	        [255, 100, 25, 1]
-		],
 
-		//custom function called when rendered
-	//	getContent: function() {
-	//		if(this.props.reverse) {
-	//			return this.state.bluebirdBody.split('').reverse().join('');
-	//		} else {
-	//			return this.state.bluebirdBody;
-	//		}
-	//	},
+	    //custom function called when rendered
+	//  getContent: function() {
+	//      if(this.props.reverse) {
+	//          return this.state.bluebirdBody.split('').reverse().join('');
+	//      } else {
+	//          return this.state.bluebirdBody;
+	//      }
+	//  },
 	//
-		/*
-		// called by onChange
-		handlePaletteChange: function(newPalette) {
-			PalettePickerActions.inputChange(newPalette);
-			//below is old (non-FLUX) way
-			//this.state({bluebirdBody: newValue});
-		},
+	    /*
+	    // called by onChange
+	    handlePaletteChange: function(newPalette) {
+	        PalettePickerActions.inputChange(newPalette);
+	        //below is old (non-FLUX) way
+	        //this.state({bluebirdBody: newValue});
+	    },
 
-		componentDidMount: function() {
-			this.unsubscribe = PalettePickerStore.listen(this.onPaletteChange);
-		},
+	    componentDidMount: function() {
+	        this.unsubscribe = PalettePickerStore.listen(this.onPaletteChange);
+	    },
 
-		// not sure why I need this
-		componentWillUnMount: function () {
-			this.unsubscribe();
-		},
+	    // not sure why I need this
+	    componentWillUnMount: function () {
+	        this.unsubscribe();
+	    },
 
-		onPaletteChange: function(newPalette) {
-			this.setState({ newPalette: newPalette});
-		},
-		*/
+	    onPaletteChange: function(newPalette) {
+	        this.setState({ newPalette: newPalette});
+	    },
+	    */
 
-		render: function() {
-			return (
-				React.createElement("div", {className: "color-picker"}, 
-					React.createElement("div", {className: "col-xs-1"}, 
-						React.createElement(Palette, {palette: this.nwsPalette, colorSpace: "rgb"})
-					), 
-					React.createElement(PalettePicker, {palette: this.newPalette})
-				)
-			);
-		}
+	    render: function() {
+	        return (
+	            React.createElement("div", {className: "color-picker"}, 
+	                React.createElement("div", {className: "col-xs-1"}, 
+	                    React.createElement(Palette, {palette: this.nwsPalette, colorSpace: "rgb"})
+	                ), 
+	                React.createElement(PalettePicker, {palette: this.state.newPalette})
+	            )
+	        );
+	    }
 	});
 
 	module.exports = PalettePickerContainer;
@@ -20542,40 +20541,41 @@
 	/** @jsx React.DOM */var React = __webpack_require__(1);
 
 	var Palette = React.createClass({displayName: "Palette",
-		backgroundColor: function(color, colorSpace, noHue) {
-			if (colorSpace === 'rgb') {
-				return "rgb(" + color[0] + ", " + color[1] + ", " + color[2] + ")";
-			} else if (colorSpace === 'hsl') {
-				if (noHue) { // return a color with no saturation
-					return "hsl(" + color[0] + ", " + 0 + "%, " + color[2] + "%)";
-				} else {
+	    backgroundColor: function(color, colorSpace, noHue) {
+	        if (colorSpace === 'rgb') {
+	            return "rgb(" + color[0] + ", " + color[1] + ", " + color[2] + ")";
+	        } else if (colorSpace === 'hsl') {
+	            if (noHue) { // return a color with no saturation
+	                return "hsl(" + color[0] + ", " + 0 + "%, " + color[2] + "%)";
+	            } else {
 
-					return "hsl(" + color[0] + ", " + color[1] + "%, " + color[2] + "%)";
-				}
-			} else {
-				console.error("Shit is fucked up");
-			}
-		},
-		render: function() {
-			var colorSpace = this.props.colorSpace,
-				backgroundColor = this.backgroundColor,
-				noHue = this.props.noHue,
-				colors = this.props.palette.map(function(color, i) {
-					return (
-						React.createElement("div", {key: i, style: {
-							backgroundColor: backgroundColor(color, colorSpace, noHue),
-							height: "30px",
-							width: "50px",
-							marginBottom: "10px"
-						}})
-					)
-				});
-			return (
-				React.createElement("div", null, 
-					colors
-				)
-			)
-		}
+	                return "hsl(" + color[0] + ", " + color[1] + "%, " + color[2] + "%)";
+	            }
+	        } else {
+	            console.error("Shit is fucked up");
+	        }
+	    },
+	    render: function() {
+	        var colorSpace = this.props.colorSpace,
+	            backgroundColor = this.backgroundColor,
+	            noHue = this.props.noHue,
+	            colors = this.props.palette.map(function(color, i) {
+	                return (
+	                    React.createElement("div", {className: "color", key: i, style: {
+	                        backgroundColor: backgroundColor(color, colorSpace, noHue),
+	                        height: "30px",
+	                        width: "50px",
+	                        marginBottom: "10px",
+	                        border: "1px solid #ddd"
+	                    }})
+	                )
+	            });
+	        return (
+	            React.createElement("div", null, 
+	                colors
+	            )
+	        )
+	    }
 	});
 
 	module.exports = Palette;
@@ -20586,34 +20586,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React = __webpack_require__(1),
-		Palette = __webpack_require__(158),
-		HslForm = __webpack_require__(160);
+	    Palette = __webpack_require__(158),
+	    PaletteForm = __webpack_require__(160);
 
 	var PalettePicker = React.createClass({displayName: "PalettePicker",
-		//Used for type validation
-	//	propTypes: {
-	//		value: React.PropTypes.number,
-	//		onChange: React.PropTypes.func
-	//	},
-	//	//gets called by onChange prop when value changes
-	//	//this is not a special React function, just one we created
-	//	//to handle a change to the form
-	//	handleChange: function(e) {
-	//		this.props.onChange(e.target.value);
-	//	},
-		render: function() {
-			return (
-				React.createElement("div", null, 
-					React.createElement("div", {className: "col-xs-1"}, 
-						React.createElement(Palette, {palette: this.props.palette, colorSpace: "hsl", noHue: true})
-					), 
-					React.createElement("div", {className: "col-xs-1"}, 
-						React.createElement(Palette, {palette: this.props.palette, colorSpace: "hsl"})
-					), 
-					React.createElement(HslForm, {palette: this.props.palette})
-				)
-			);
-		}
+	    //Used for type validation
+	//  propTypes: {
+	//      value: React.PropTypes.number,
+	//      onChange: React.PropTypes.func
+	//  },
+	//  //gets called by onChange prop when value changes
+	//  //this is not a special React function, just one we created
+	//  //to handle a change to the form
+	//  handleChange: function(e) {
+	//      this.props.onChange(e.target.value);
+	//  },
+	    render: function() {
+	        return (
+	            React.createElement("div", null, 
+	                React.createElement("div", {className: "col-xs-1"}, 
+	                    React.createElement(Palette, {palette: this.props.palette, colorSpace: "hsl", noHue: true})
+	                ), 
+	                React.createElement("div", {className: "col-xs-1"}, 
+	                    React.createElement(Palette, {palette: this.props.palette, colorSpace: "hsl"})
+	                ), 
+	                React.createElement(PaletteForm, {palette: this.props.palette})
+	            )
+	        );
+	    }
 	});
 
 	module.exports = PalettePicker;
@@ -20624,25 +20624,36 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React = __webpack_require__(1),
-		HslSlider = __webpack_require__(161);
+	    HslSelector = __webpack_require__(161);
 
-	var HslForm = React.createClass({displayName: "HslForm",
-		render: function() {
-			var sliders = this.props.palette.map(function(color) {
-				return (
-					React.createElement(HslSlider, {color: color})
-				)
-			});
+	var PaletteForm = React.createClass({displayName: "PaletteForm",
+	    render: function() {
+	        var sliders = this.props.palette.map(function(color, i) {
+	            return (
+	                React.createElement(HslSelector, {key: i, color: color})
+	            )
+	        });
 
-			return (
-				React.createElement("div", null, 
-					sliders
-				)
-			)
-		}
+	        return (
+	            React.createElement("div", {className: "col-sm-6"}, 
+	                React.createElement("div", {className: "row hsl-labels"}, 
+	                    React.createElement("div", {className: "col-sm-4"}, 
+	                        React.createElement("p", null, "Hue")
+	                    ), 
+	                    React.createElement("div", {className: "col-sm-4"}, 
+	                        React.createElement("p", null, "Saturation")
+	                    ), 
+	                    React.createElement("div", {className: "col-sm-4"}, 
+	                        React.createElement("p", null, "Luminosity")
+	                    )
+	                ), 
+	                sliders
+	            )
+	        )
+	    }
 	});
 
-	module.exports = HslForm;
+	module.exports = PaletteForm;
 
 
 /***/ },
@@ -20651,15 +20662,60 @@
 
 	/** @jsx React.DOM */var React = __webpack_require__(1);
 
-	var HslSlider = React.createClass({displayName: "HslSlider",
-		render: function() {
-			return (
-				React.createElement("p", null, this.props.color)
-			)
-		}
+	var HslSelector = React.createClass({displayName: "HslSelector",
+	    handleChange: function(name) {
+	        console.log(name);
+	    },
+	    colorAttributeProps: [
+	        {
+	            name: 'hue',
+	            min: 0,
+	            max: 360,
+	            step: 1,
+	        }, {
+	            name: 'saturation',
+	            min: 0,
+	            max: 100,
+	            step: 1
+	        }, {
+	            name: 'luminosity',
+	            min: 0,
+	            max: 100,
+	            step: 1
+	        }
+	    ],
+
+
+	    render: function() {
+	        var props = this.props,
+	            handleChange = this.handleChange,
+	            colorAttributeProps = this.colorAttributeProps,
+	            inputGroups = colorAttributeProps.map(function(colorAttribute, i) {
+	                return (
+	                    React.createElement("div", {className: "input-group col-sm-4"}, 
+	                        React.createElement("input", {
+	                            name: colorAttribute.name, 
+	                            type: "range", 
+	                            min: colorAttribute.min, 
+	                            max: colorAttribute.max, 
+	                            step: colorAttribute.step, 
+	                            value: props.color[i], 
+	                            key: i, 
+	                            onChange: handleChange})
+	                    )
+	                )
+	            });
+
+
+	        return (
+	            React.createElement("div", {className: "hsl-selector row"}, 
+	                inputGroups
+	            )
+	        )
+	    }
 	});
 
-	module.exports = HslSlider;
+	module.exports = HslSelector;
 
 
 /***/ }
