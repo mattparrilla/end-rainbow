@@ -10,13 +10,13 @@
 <body>
 
 <div class="header">
-	<div class="rainbow">
-	{% for color in old_palette %}<div class="color-pane"
-			 style="background-color: rgb( {{ color[0] }},
-										   {{ color[1] }},
-										   {{ color[2] }});"></div>{% endfor %}
-	</div>
-	<h1>#endRainbow</h1>
+    <div class="rainbow">
+    {% for color in old_palette %}<div class="color-pane"
+             style="background-color: rgb( {{ color[0] }},
+                                           {{ color[1] }},
+                                           {{ color[2] }});"></div>{% endfor %}
+    </div>
+    <h1>#endRainbow</h1>
 </div>
 
 <div id="end-rainbow"></div>
@@ -24,60 +24,60 @@
 {#
 <!--
 <div class="row">
-	<div class="col-xs-1">
-		{% for color in old_palette %}
-			<div class="color-cell"
-				 style="background-color: rgb( {{ color[0] }},
-											   {{ color[1] }},
-											   {{ color[2] }});">
-			</div>
-		{% endfor %}
-	</div>
+    <div class="col-xs-1">
+        {% for color in old_palette %}
+            <div class="color-cell"
+                 style="background-color: rgb( {{ color[0] }},
+                                               {{ color[1] }},
+                                               {{ color[2] }});">
+            </div>
+        {% endfor %}
+    </div>
 
-	<div class="col-xs-1">
-		{% for color in new_palette %}
-			<div class="color-cell color-{{ loop.index0 }}"
-				 style="background-color: hsla( {{ color[0] }},
-											   {{ color[1] }}%,
-											   {{ color[2] }}%,
-											   {{ color[3] }})">
-			 </div>
-		{% endfor %}
-	</div>
+    <div class="col-xs-1">
+        {% for color in new_palette %}
+            <div class="color-cell color-{{ loop.index0 }}"
+                 style="background-color: hsla( {{ color[0] }},
+                                               {{ color[1] }}%,
+                                               {{ color[2] }}%,
+                                               {{ color[3] }})">
+             </div>
+        {% endfor %}
+    </div>
 
-	<div class="col-xs-1">
-		{% for color in new_palette %}
-			<div class="color-cell color-{{ loop.index0 }}"
-				 style="background-color: hsla( {{ color[0] }},
-											   0%,
-											   {{ color[2] }}%,
-											   {{ color[3] }})">
-			 </div>
-		{% endfor %}
-	</div>
+    <div class="col-xs-1">
+        {% for color in new_palette %}
+            <div class="color-cell color-{{ loop.index0 }}"
+                 style="background-color: hsla( {{ color[0] }},
+                                               0%,
+                                               {{ color[2] }}%,
+                                               {{ color[3] }})">
+             </div>
+        {% endfor %}
+    </div>
 
-	<div class="col-xs-2">
-		{% include "form-picker.html" %}
-	</div>
-	<div class="col-xs-6">
-		<button class="btn btn-default make-gif">Make GIF</button>
-		<button class="btn btn-default save-palette">Save Palette</button>
+    <div class="col-xs-2">
+        {% include "form-picker.html" %}
+    </div>
+    <div class="col-xs-6">
+        <button class="btn btn-default make-gif">Make GIF</button>
+        <button class="btn btn-default save-palette">Save Palette</button>
 
-		<div class="gifs row">
-			<div class="col-xs-6">
-				<img class="img-responsive" src="{{ old_gif }}"/>
-			</div>
-			<div class="col-xs-6">
-				<img id="new-gif" class="img-responsive" src="{{ new_gif }}"/>
-			</div>
-		</div>
-	</div>
+        <div class="gifs row">
+            <div class="col-xs-6">
+                <img class="img-responsive" src="{{ old_gif }}"/>
+            </div>
+            <div class="col-xs-6">
+                <img id="new-gif" class="img-responsive" src="{{ new_gif }}"/>
+            </div>
+        </div>
+    </div>
 </div>
 -->
 #}
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="static/app.bundle.js"></script>
+<script src="static/app.bundle.js?"></script>
 
 </body>
 

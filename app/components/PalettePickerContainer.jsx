@@ -1,33 +1,27 @@
 var React = require('react'),
+    Reflux = require('reflux'),
     Palette = require('./Palette'),
-    PalettePicker = require('./PalettePicker');
-
+    PalettePicker = require('./PalettePicker'),
+    PalettePickerActions = require('../actions/PalettePickerActions'),
+    PalettePickerStore = require('../stores/PalettePickerStore');
 
 var PalettePickerContainer = React.createClass({
-
-    //getInitialState is invoked before the component is mounted
-    //don't put props in here
-    getInitialState: function() {
-
-        return {
-            newPalette: [
-                [66, 100, 100],
-                [66, 100, 95],
-                [66, 100, 90],
-                [66, 100, 85],
-                [66, 100, 80],
-                [16, 100, 75],
-                [360, 100, 60],
-                [345, 100, 55],
-                [330, 100, 50],
-                [315, 100, 45],
-                [300, 100, 40],
-                [285, 100, 35],
-                [270, 100, 30],
-                [255, 100, 25]
-            ]
-        };
-    },
+    newPalette: [
+        [66, 100, 100],
+        [66, 100, 95],
+        [66, 100, 90],
+        [66, 100, 85],
+        [66, 100, 80],
+        [16, 100, 75],
+        [360, 100, 60],
+        [345, 100, 55],
+        [330, 100, 50],
+        [315, 100, 45],
+        [300, 100, 40],
+        [285, 100, 35],
+        [270, 100, 30],
+        [255, 100, 25]
+    ],
     nwsPalette: [
         [152, 84, 198],
         [248, 0, 253],
@@ -52,40 +46,20 @@ var PalettePickerContainer = React.createClass({
         [240, 240, 240],
         [255, 255, 255]
     ],
-
-
-    //custom function called when rendered
-//  getContent: function() {
-//      if(this.props.reverse) {
-//          return this.state.bluebirdBody.split('').reverse().join('');
-//      } else {
-//          return this.state.bluebirdBody;
-//      }
-//  },
-//
-    /*
-    // called by onChange
-    handlePaletteChange: function(newPalette) {
-        PalettePickerActions.inputChange(newPalette);
-        //below is old (non-FLUX) way
-        //this.state({bluebirdBody: newValue});
+    getInitialState: function() {
+        return { newPalette: this.newPalette };
     },
-
+    onSliderChange: function(palette) {
+        this.setState({
+            newPalette: palette
+        });
+    },
     componentDidMount: function() {
-        this.unsubscribe = PalettePickerStore.listen(this.onPaletteChange);
+        this.listenTo(PalettePickerStore, this.onSliderChange);
     },
-
-    // not sure why I need this
-    componentWillUnMount: function () {
-        this.unsubscribe();
-    },
-
-    onPaletteChange: function(newPalette) {
-        this.setState({ newPalette: newPalette});
-    },
-    */
-
     render: function() {
+        console.log('PP state: ' + JSON.parse(JSON.stringify(this.state)));
+        console.dir(this.state);
         return (
             <div className="color-picker">
                 <div className="col-xs-1">

@@ -1,11 +1,16 @@
 var React = require('react'),
-    HslSelector = require('./HslSelector');
+    HslSelector = require('./HslSelector'),
+    PalettePickerActions = require('../actions/PalettePickerActions.jsx');
 
 var PaletteForm = React.createClass({
+    handleChange: function() {
+        PalettePickerActions.sliderChange(this.props.palette);
+    },
     render: function() {
+        var handleChange = this.handleChange;
         var sliders = this.props.palette.map(function(color, i) {
             return (
-                <HslSelector key={i} color={color} />
+                <HslSelector key={i} color={color} onChange={handleChange}/>
             )
         });
 
