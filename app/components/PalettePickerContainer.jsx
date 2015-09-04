@@ -6,22 +6,7 @@ var React = require('react'),
     PalettePickerStore = require('../stores/PalettePickerStore');
 
 var PalettePickerContainer = React.createClass({
-    newPalette: [
-        [66, 100, 100],
-        [66, 100, 95],
-        [66, 100, 90],
-        [66, 100, 85],
-        [66, 100, 80],
-        [16, 100, 75],
-        [360, 100, 60],
-        [345, 100, 55],
-        [330, 100, 50],
-        [315, 100, 45],
-        [300, 100, 40],
-        [285, 100, 35],
-        [270, 100, 30],
-        [255, 100, 25]
-    ],
+    mixins: [Reflux.connect(PalettePickerStore, "newPalette")],
     nwsPalette: [
         [152, 84, 198],
         [248, 0, 253],
@@ -46,17 +31,6 @@ var PalettePickerContainer = React.createClass({
         [240, 240, 240],
         [255, 255, 255]
     ],
-    getInitialState: function() {
-        return { newPalette: this.newPalette };
-    },
-    onSliderChange: function(palette) {
-        this.setState({
-            newPalette: palette
-        });
-    },
-    componentDidMount: function() {
-        this.listenTo(PalettePickerStore, this.onSliderChange);
-    },
     render: function() {
         console.log('PP state: ' + JSON.parse(JSON.stringify(this.state)));
         console.dir(this.state);
