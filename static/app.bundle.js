@@ -20451,7 +20451,7 @@
 	        [229, 188, 0],
 	        [253, 248, 2],
 	        [0, 142, 0],
-	        [1, 197],
+	        [1, 197, 1],
 	        [2, 253, 2],
 	        [3, 0, 244],
 	        [1, 159, 244],
@@ -20466,8 +20466,6 @@
 	        [255, 255, 255]
 	    ],
 	    render: function() {
-	        console.log('PP state: ' + JSON.parse(JSON.stringify(this.state)));
-	        console.dir(this.state);
 	        return (
 	            React.createElement("div", {className: "color-picker"}, 
 	                React.createElement("div", {className: "col-xs-1"}, 
@@ -22109,6 +22107,10 @@
 	/** @jsx React.DOM */var React = __webpack_require__(1);
 
 	var Palette = React.createClass({displayName: "Palette",
+	    propTypes: {
+	        colorSpace: React.PropTypes.string,
+	        noHue: React.PropTypes.bool
+	    },
 	    backgroundColor: function(color, colorSpace, noHue) {
 	        if (colorSpace === 'rgb') {
 	            return "rgb(" + color[0] + ", " + color[1] + ", " + color[2] + ")";
@@ -22126,21 +22128,22 @@
 	    render: function() {
 	        var colorSpace = this.props.colorSpace,
 	            backgroundColor = this.backgroundColor,
-	            noHue = this.props.noHue,
-	            colors = this.props.palette.map(function(color, i) {
-	                return (
-	                    React.createElement("div", {className: "color", key: i, style: {
-	                        backgroundColor: backgroundColor(color, colorSpace, noHue),
-	                        height: "30px",
-	                        width: "50px",
-	                        marginBottom: "10px",
-	                        border: "1px solid #ddd"
-	                    }})
-	                )
-	            });
+	            noHue = this.props.noHue;
 	        return (
 	            React.createElement("div", null, 
-	                colors
+	                
+	                    this.props.palette.map(function(color, i) {
+	                        return (
+	                            React.createElement("div", {className: "color", key: i, style: {
+	                                backgroundColor: backgroundColor(color, colorSpace, noHue),
+	                                height: "30px",
+	                                width: "50px",
+	                                marginBottom: "10px",
+	                                border: "1px solid #ddd"
+	                            }})
+	                        )
+	                    })
+	                
 	            )
 	        )
 	    }
@@ -22158,17 +22161,9 @@
 	    PaletteForm = __webpack_require__(180);
 
 	var PalettePicker = React.createClass({displayName: "PalettePicker",
-	    //Used for type validation
-	//  propTypes: {
-	//      value: React.PropTypes.number,
-	//      onChange: React.PropTypes.func
-	//  },
-	//  //gets called by onChange prop when value changes
-	//  //this is not a special React function, just one we created
-	//  //to handle a change to the form
-	//  handleChange: function(e) {
-	//      this.props.onChange(e.target.value);
-	//  },
+	    propTypes: {
+	        palette: React.PropTypes.array
+	    },
 	    render: function() {
 	        return (
 	            React.createElement("div", null, 
@@ -22196,16 +22191,16 @@
 	    PalettePickerActions = __webpack_require__(182);
 
 	var PaletteForm = React.createClass({displayName: "PaletteForm",
-	    handleChange: function() {
-	        PalettePickerActions.sliderChange(this.props.palette);
+	    propTypes: {
+	        palette: React.PropTypes.array,
+	    },
+	    handleChange: function(i, newColor) {
+	        var newPalette = this.props.palette;
+	        newPalette[i] = newColor;
+	        PalettePickerActions.sliderChange(newPalette);
 	    },
 	    render: function() {
 	        var handleChange = this.handleChange;
-	        var sliders = this.props.palette.map(function(color, i) {
-	            return (
-	                React.createElement(HslSelector, {key: i, color: color, onChange: handleChange})
-	            )
-	        });
 
 	        return (
 	            React.createElement("div", {className: "col-sm-6"}, 
@@ -22220,7 +22215,13 @@
 	                        React.createElement("p", null, "Luminosity")
 	                    )
 	                ), 
-	                sliders
+	                
+	                    this.props.palette.map(function(color, i) {
+	                        return (
+	                            React.createElement(HslSelector, {key: i, color: color, onChange: handleChange.bind(null, i)})
+	                        )
+	                    })
+	                
 	            )
 	        )
 	    }
@@ -22236,12 +22237,12 @@
 	/** @jsx React.DOM */var React = __webpack_require__(1);
 
 	var HslSelector = React.createClass({displayName: "HslSelector",
-	    handleChange: function() {
-	        this.props.onChange(this.props.color);
+	    handleChange: function(i, e) {
+	        var color = this.props.color;
+	        color[i] = e.target.value;
+	        this.props.onChange(color);
 	    },
 	    colorAttributeProps: [
-	        // I want to call this colorComponentProps, but 'componentes' have a
-	        // specific meaning in react!
 	        {
 	            name: 'hue',
 	            min: 0,
@@ -22262,25 +22263,27 @@
 	    render: function() {
 	        var props = this.props,
 	            handleChange = this.handleChange,
-	            colorAttributeProps = this.colorAttributeProps,
-	            inputGroups = colorAttributeProps.map(function(colorAttribute, i) {
-	                return (
-	                    React.createElement("div", {className: "input-group col-sm-4", key: i}, 
-	                        React.createElement("input", {
-	                            name: colorAttribute.name, 
-	                            type: "range", 
-	                            min: colorAttribute.min, 
-	                            max: colorAttribute.max, 
-	                            step: colorAttribute.step, 
-	                            value: props.color[i], 
-	                            onChange: handleChange})
-	                    )
-	                )
-	            });
+	            colorAttributeProps = this.colorAttributeProps;
 
 	        return (
 	            React.createElement("div", {className: "hsl-selector row"}, 
-	                inputGroups
+	                
+	                    colorAttributeProps.map(function(colorAttribute, i) {
+	                        return (
+	                            React.createElement("div", {className: "input-group col-sm-4", key: i}, 
+	                                React.createElement("input", {
+	                                    name: colorAttribute.name, 
+	                                    type: "range", 
+	                                    min: colorAttribute.min, 
+	                                    max: colorAttribute.max, 
+	                                    step: colorAttribute.step, 
+	                                    value: props.color[i], 
+	                                    dataPaletteIndex: props.paletteIndex, 
+	                                    onChange: handleChange.bind(null, i)})
+	                            )
+	                        )
+	                    })
+	                
 	            )
 	        )
 	    }
@@ -22329,7 +22332,6 @@
 	    },
 	    listenables: [PalettePickerActions],
 	    onSliderChange: function(newValue) {
-	        console.log('store: slider change');
 	        this.trigger(newValue);
 	    }
 	});

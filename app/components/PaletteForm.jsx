@@ -3,16 +3,16 @@ var React = require('react'),
     PalettePickerActions = require('../actions/PalettePickerActions.jsx');
 
 var PaletteForm = React.createClass({
-    handleChange: function() {
-        PalettePickerActions.sliderChange(this.props.palette);
+    propTypes: {
+        palette: React.PropTypes.array,
+    },
+    handleChange: function(i, newColor) {
+        var newPalette = this.props.palette;
+        newPalette[i] = newColor;
+        PalettePickerActions.sliderChange(newPalette);
     },
     render: function() {
         var handleChange = this.handleChange;
-        var sliders = this.props.palette.map(function(color, i) {
-            return (
-                <HslSelector key={i} color={color} onChange={handleChange}/>
-            )
-        });
 
         return (
             <div className="col-sm-6">
@@ -27,7 +27,13 @@ var PaletteForm = React.createClass({
                         <p>Luminosity</p>
                     </div>
                 </div>
-                {sliders}
+                {
+                    this.props.palette.map(function(color, i) {
+                        return (
+                            <HslSelector key={i} color={color} onChange={handleChange.bind(null, i)}/>
+                        )
+                    })
+                }
             </div>
         )
     }

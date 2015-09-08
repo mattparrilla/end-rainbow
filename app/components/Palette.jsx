@@ -1,6 +1,10 @@
 var React = require('react');
 
 var Palette = React.createClass({
+    propTypes: {
+        colorSpace: React.PropTypes.string,
+        noHue: React.PropTypes.bool
+    },
     backgroundColor: function(color, colorSpace, noHue) {
         if (colorSpace === 'rgb') {
             return "rgb(" + color[0] + ", " + color[1] + ", " + color[2] + ")";
@@ -18,21 +22,22 @@ var Palette = React.createClass({
     render: function() {
         var colorSpace = this.props.colorSpace,
             backgroundColor = this.backgroundColor,
-            noHue = this.props.noHue,
-            colors = this.props.palette.map(function(color, i) {
-                return (
-                    <div className="color" key={i} style={{
-                        backgroundColor: backgroundColor(color, colorSpace, noHue),
-                        height: "30px",
-                        width: "50px",
-                        marginBottom: "10px",
-                        border: "1px solid #ddd"
-                    }}></div>
-                )
-            });
+            noHue = this.props.noHue;
         return (
             <div>
-                {colors}
+                {
+                    this.props.palette.map(function(color, i) {
+                        return (
+                            <div className="color" key={i} style={{
+                                backgroundColor: backgroundColor(color, colorSpace, noHue),
+                                height: "30px",
+                                width: "50px",
+                                marginBottom: "10px",
+                                border: "1px solid #ddd"
+                            }}></div>
+                        )
+                    })
+                }
             </div>
         )
     }

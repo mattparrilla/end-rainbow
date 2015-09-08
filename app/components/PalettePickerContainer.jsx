@@ -17,7 +17,7 @@ var PalettePickerContainer = React.createClass({
         [229, 188, 0],
         [253, 248, 2],
         [0, 142, 0],
-        [1, 197],
+        [1, 197, 1],
         [2, 253, 2],
         [3, 0, 244],
         [1, 159, 244],
@@ -32,8 +32,6 @@ var PalettePickerContainer = React.createClass({
         [255, 255, 255]
     ],
     render: function() {
-        console.log('PP state: ' + JSON.parse(JSON.stringify(this.state)));
-        console.dir(this.state);
         return (
             <div className="color-picker">
                 <div className="col-xs-1">

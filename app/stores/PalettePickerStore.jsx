@@ -23,7 +23,6 @@ var PalettePickerStore = Reflux.createStore({
     },
     listenables: [PalettePickerActions],
     onSliderChange: function(newValue) {
-        console.log('store: slider change');
         this.trigger(newValue);
     }
 });

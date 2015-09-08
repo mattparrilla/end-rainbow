@@ -3,17 +3,9 @@ var React = require('react'),
     PaletteForm = require('./PaletteForm');
 
 var PalettePicker = React.createClass({
-    //Used for type validation
-//  propTypes: {
-//      value: React.PropTypes.number,
-//      onChange: React.PropTypes.func
-//  },
-//  //gets called by onChange prop when value changes
-//  //this is not a special React function, just one we created
-//  //to handle a change to the form
-//  handleChange: function(e) {
-//      this.props.onChange(e.target.value);
-//  },
+    propTypes: {
+        palette: React.PropTypes.array
+    },
     render: function() {
         return (
             <div>
