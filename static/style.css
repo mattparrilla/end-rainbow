@@ -78,7 +78,35 @@ h1 span {
 }
 
 .hsl-labels {
-    margin-top: -20px;
+    margin-top: -33px;
+    padding-bottom: 20px;
     text-align: center;
 }
 
+.hsl-labels div {
+    width: 150px;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.palette {
+    width: 50px;
+    margin: 0 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.palette-form {
+    display: inline-block;
+}
+
+.hsl-sliders {
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.hsl-sliders .slider {
+    width: 150px;
+    margin: 0 10px;
+    display: inline-block;
+}

@@ -12,28 +12,21 @@ var PaletteForm = React.createClass({
         PalettePickerActions.sliderChange(newPalette);
     },
     render: function() {
-        var handleChange = this.handleChange;
+        var handleChange = this.handleChange,
+            hslSelectors = this.props.palette.map(function(color, i) {
+                return (
+                    <HslSelector key={i} color={color} onChange={handleChange.bind(null, i)}/>
+                )
+            });
 
         return (
-            <div className="col-sm-6">
-                <div className="row hsl-labels">
-                    <div className="col-sm-4">
-                        <p>Hue</p>
-                    </div>
-                    <div className="col-sm-4">
-                        <p>Saturation</p>
-                    </div>
-                    <div className="col-sm-4">
-                        <p>Luminosity</p>
-                    </div>
+            <div className="palette-form">
+                <div className="hsl-labels">
+                    <div>Hue</div>
+                    <div>Saturation</div>
+                    <div>Luminosity</div>
                 </div>
-                {
-                    this.props.palette.map(function(color, i) {
-                        return (
-                            <HslSelector key={i} color={color} onChange={handleChange.bind(null, i)}/>
-                        )
-                    })
-                }
+                {hslSelectors}
             </div>
         )
     }

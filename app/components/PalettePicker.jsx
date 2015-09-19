@@ -8,13 +8,9 @@ var PalettePicker = React.createClass({
     },
     render: function() {
         return (
-            <div>
-                <div className="col-xs-1">
-                    <Palette palette={this.props.palette} colorSpace="hsl" noHue={true} />
-                </div>
-                <div className="col-xs-1">
-                    <Palette palette={this.props.palette} colorSpace="hsl" />
-                </div>
+            <div className="new-palette-picker" style={{ display: "inline-block"}}>
+                <Palette palette={this.props.palette} colorSpace="hsl" noHue={true} />
+                <Palette palette={this.props.palette} colorSpace="hsl" />
                 <PaletteForm palette={this.props.palette} />
             </div>
         );

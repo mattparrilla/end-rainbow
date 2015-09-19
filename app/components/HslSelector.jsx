@@ -27,27 +27,26 @@ var HslSelector = React.createClass({
     render: function() {
         var props = this.props,
             handleChange = this.handleChange,
-            colorAttributeProps = this.colorAttributeProps;
+            colorAttributeProps = this.colorAttributeProps,
+            sliders = colorAttributeProps.map(function(colorAttribute, i) {
+                return (
+                    <div className="slider" key={i}>
+                        <input
+                            name={colorAttribute.name}
+                            type="range"
+                            min={colorAttribute.min}
+                            max={colorAttribute.max}
+                            step={colorAttribute.step}
+                            value={props.color[i]}
+                            dataPaletteIndex={props.paletteIndex}
+                            onChange={handleChange.bind(null, i)}/>
+                    </div>
+                )
+            });
 
         return (
-            <div className="hsl-selector row">
-                {
-                    colorAttributeProps.map(function(colorAttribute, i) {
-                        return (
-                            <div className="input-group col-sm-4" key={i}>
-                                <input
-                                    name={colorAttribute.name}
-                                    type="range"
-                                    min={colorAttribute.min}
-                                    max={colorAttribute.max}
-                                    step={colorAttribute.step}
-                                    value={props.color[i]}
-                                    dataPaletteIndex={props.paletteIndex}
-                                    onChange={handleChange.bind(null, i)}/>
-                            </div>
-                        )
-                    })
-                }
+            <div className="hsl-sliders">
+                {sliders}
             </div>
         )
     }
