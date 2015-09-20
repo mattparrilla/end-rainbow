@@ -28,15 +28,10 @@ var Palette = React.createClass({
                 {
                     this.props.palette.map(function(color, i) {
                         return (
-                            <div className="color" key={i}
-                                style={{
-                                    backgroundColor: backgroundColor(color, colorSpace, noHue),
-                                    height: "30px",
-                                    width: "50px",
-                                    marginBottom: "10px",
-                                    border: "1px solid #ddd",
-                                    display: "inline-block"
-                            }}></div>
+                            <div className="color"
+                                 key={i}
+                                 style={{backgroundColor: backgroundColor(color, colorSpace, noHue)}}>
+                            </div>
                         )
                     })
                 }

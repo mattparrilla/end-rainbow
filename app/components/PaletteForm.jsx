@@ -22,9 +22,9 @@ var PaletteForm = React.createClass({
         return (
             <div className="palette-form">
                 <div className="hsl-labels">
-                    <div>Hue</div>
-                    <div>Saturation</div>
-                    <div>Luminosity</div>
+                    <div>HUE</div>
+                    <div>SATURATION</div>
+                    <div>LUMINOSITY</div>
                 </div>
                 {hslSelectors}
             </div>

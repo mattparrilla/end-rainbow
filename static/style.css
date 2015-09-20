@@ -1,3 +1,6 @@
+#end-rainbow {
+    padding: 0 60px 30px;
+}
 .form-control {
     width: 50px !important;
     height: 30px;
@@ -18,17 +21,6 @@ h1 span {
     float: right;
     font-size: 72px;
     padding-top: 20px;
-}
-
-.color-row, .color-cell {
-    height: 30px;
-    margin: 10px;
-}
-
-.color-cell {
-    width: 40px;
-    margin: 10px auto;
-    border: 1px solid #f9f9f9;
 }
 
 .btn {
@@ -63,14 +55,6 @@ h1 span {
     height: 150px;
 }
 
-.hsl-selector .input-group {
-    display: inline-block;
-    height: 30px;
-    font-size: 10px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
 .input-group input {
     margin: 0 10px;
     width: 90%;
@@ -78,9 +62,11 @@ h1 span {
 }
 
 .hsl-labels {
-    margin-top: -33px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #646464;
 }
 
 .hsl-labels div {
@@ -90,23 +76,37 @@ h1 span {
 }
 
 .palette {
-    width: 50px;
-    margin: 0 10px;
+    width: 30px;
+    margin: 20px 5px 0;
     display: inline-block;
     vertical-align: top;
+}
+
+.color-picker > .palette {
+    padding-top: 6px;
 }
 
 .palette-form {
     display: inline-block;
 }
 
-.hsl-sliders {
-    height: 35px;
-    margin-bottom: 10px;
+.slider {
+    display: inline-block;
+    width: 150px;
+    margin: 0 8px;
 }
 
-.hsl-sliders .slider {
-    width: 150px;
-    margin: 0 10px;
-    display: inline-block;
+.color, .slider {
+    height: 25px;
+    margin-bottom: 3px;
+}
+
+.color {
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+.new-palette-picker {
+    border: 1px solid #ddd;
+    padding: 5px;
 }

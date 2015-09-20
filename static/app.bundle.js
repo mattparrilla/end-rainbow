@@ -23213,15 +23213,10 @@
 	                
 	                    this.props.palette.map(function(color, i) {
 	                        return (
-	                            React.createElement("div", {className: "color", key: i, 
-	                                style: {
-	                                    backgroundColor: backgroundColor(color, colorSpace, noHue),
-	                                    height: "30px",
-	                                    width: "50px",
-	                                    marginBottom: "10px",
-	                                    border: "1px solid #ddd",
-	                                    display: "inline-block"
-	                            }})
+	                            React.createElement("div", {className: "color", 
+	                                 key: i, 
+	                                 style: {backgroundColor: backgroundColor(color, colorSpace, noHue)}}
+	                            )
 	                        )
 	                    })
 	                
@@ -23377,7 +23372,7 @@
 /* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(console) {/** @jsx React.DOM */var Reflux = __webpack_require__(164),
+	/** @jsx React.DOM */var Reflux = __webpack_require__(164),
 	    PalettePickerActions = __webpack_require__(188),
 	    request = __webpack_require__(190);
 
@@ -23430,14 +23425,12 @@
 	    },
 	    listenables: [PalettePickerActions],
 	    onSliderChange: function(newValue) {
-	        console.log(newValue);
 	        this.trigger(newValue);
 	    }
 	});
 
 	module.exports = PalettePickerStore;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
 /* 190 */
