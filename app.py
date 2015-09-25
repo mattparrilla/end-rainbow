@@ -49,7 +49,7 @@ def palette():
             'imageSrc': image_src
         })
     else:
-        #TODO: return something better
+        # TODO: return something better
         return "Shit!"
 
     # take palette, generate image

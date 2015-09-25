@@ -1,9 +1,16 @@
-#Palette Picker
+#EndRainbow Palette Picker
 
-This should be generalized:
+A tool for selecting intuitive and accessible palettes for weather data.
 
--allow for base palette (NWS in current case) to be inputted by user.
--allow for any picture to be uploaded (possible security concerns)
-	- if no image provided, provide base images (a la colorbrewer picker)
--add default palettes (like colorbrewer)
--provide colorblind approximations of your palette
+##Application Structure
+
+```
+Container (this component gets state and passes it down the chain)
+ | PalettePicker
+   | ColorPicker
+     | Slider (this component fires action)
+     | Slider
+     | Slider
+   | (As many ColorPickers as colors)
+ | Comparison Images (not React)
+```

@@ -1,26 +1,26 @@
 <form class="form-inline" action="{{ url_for('make_gif') }}" method="post">
 {% for color in new_palette %}
-	<div id="color-{{ loop.index0 }}" class="form-inline color-row">
-		<input
-			name="color-{{ loop.index0 }}-h"
-			type="text"
-			class="form-control"
-			value="{{ color[0] }}">
-		<input
-			name="color-{{ loop.index0 }}-s"
-			type="text"
-			class="form-control"
-			value="{{ color[1] }}">
-		<input
-			name="color-{{ loop.index0 }}-l"
-			type="text"
-			class="form-control"
-			value="{{ color[2] }}">
-		<input
-			name="color-{{ loop.index0 }}-a"
-			type="text"
-			class="form-control"
-			value="{{ color[3] }}">
-	</div>
+    <div id="color-{{ loop.index0 }}" class="form-inline color-row">
+        <input
+            name="color-{{ loop.index0 }}-h"
+            type="text"
+            class="form-control"
+            value="{{ color[0] }}">
+        <input
+            name="color-{{ loop.index0 }}-s"
+            type="text"
+            class="form-control"
+            value="{{ color[1] }}">
+        <input
+            name="color-{{ loop.index0 }}-l"
+            type="text"
+            class="form-control"
+            value="{{ color[2] }}">
+        <input
+            name="color-{{ loop.index0 }}-a"
+            type="text"
+            class="form-control"
+            value="{{ color[3] }}">
+    </div>
 {% endfor %}
 </form>

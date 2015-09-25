@@ -1,7 +1,8 @@
 var React = require('react'),
-    PalettePickerContainer = require('./components/PalettePickerContainer');
+    Container = require('./components/Container')
+    styles = require('./styles/style.scss');
 
 React.render(
-    <PalettePickerContainer></PalettePickerContainer>,
+    <Container></Container>,
     document.getElementById('end-rainbow')
 )

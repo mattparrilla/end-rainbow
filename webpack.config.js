@@ -1,26 +1,28 @@
 module.exports = {
-	context: __dirname + "/app",
-	entry: {
-		app: "./app.jsx"
-	},
-	output: {
-		path: __dirname + "/static",
-		publicPath: 'static',
-		filename: "[name].bundle.js"
-	},
-	module: {
+    context: __dirname + "/app",
+    entry: {
+        app: "./app.jsx"
+    },
+    output: {
+        path: __dirname + "/static",
+        publicPath: 'static',
+        filename: "[name].bundle.js"
+    },
+    module: {
         loaders: [
             {
                 test: /\.jsx$/,
                 loader: 'jsx-loader?insertPragma=React.DOM&harmony'
-            },
-            {
+            }, {
                 test: /\.json$/,
                 loader: 'json-loader'
+            }, {
+                test: /\.scss$/,
+                loader: 'style!css!sass'
             }
         ]
     },
-	resolve: {
+    resolve: {
         extensions: ['', '.js', '.jsx']
     },
     node: {

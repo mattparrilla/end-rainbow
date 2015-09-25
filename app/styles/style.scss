@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    font-family: Helvetica;
+}
+
+#end-rainbow {
+    padding: 0 60px 30px;
+}
+
+.header {
+    position: relative;
+    height: 103px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    h1 {
+        margin: 0;
+        z-index: 2;
+        font-family: roboto;
+        font-weight: 500;
+        font-size: 100px;
+        padding: 20px;
+        color: white;
+        text-shadow: 1px 1px 1px #bbb;
+    }
+    .rainbow {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -10;
+        background: black;
+        .color-pane {
+            width: 7.14%;
+            display: inline-block;
+            vertical-align: top;
+            height: 150px;
+        }
+    }
+}
+
+.palette-form {
+    display: inline-block;
+}
+
+.slider {
+    display: inline-block;
+    width: 150px;
+    margin: 0 8px 5px;
+}
+
+input {
+    width: 100%;
+}
+
+.new-palette-picker {
+    border: 1px solid #888;
+    padding: 10px;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.test-images {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 30px;
+}
+
+.test-images img {
+    display: block;
+    width: 300px;
+    margin-bottom: 20px;
+    border: 1px solid #888;
+}
+
+.swatches {
+    width: 110px;
+    display: inline-block;
+    .swatch {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #ddd;
+        margin: 0 5px;
+    }
+    .old {
+        margin-right: 10px;
+    }
+}

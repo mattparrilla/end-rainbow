@@ -1,64 +1,72 @@
 var React = require('react'),
-    Palette = require('./Palette'),
-    PaletteForm = require('./PaletteForm');
+    Slider = require('./Slider');
+
+var colorArrayToBackground = function(color, colorSpace, noHue) {
+        if (colorSpace === 'rgb') {
+            return "rgb(" + color[0] + ", " + color[1] + ", " + color[2] + ")";
+        } else if (colorSpace === 'hsl') {
+            if (noHue) { // return a color with no saturation
+                return "hsl(" + color[0] + ", " + 0 + "%, " + color[2] + "%)";
+            } else {
+
+                return "hsl(" + color[0] + ", " + color[1] + "%, " + color[2] + "%)";
+            }
+        } else {
+            console.error('Getting unexpected input for color');
+        }
+    };
+
+var colorParts = [
+    {
+        name: 'hue',
+        min: 0,
+        max: 360,
+        step: 1,
+    }, {
+        name: 'saturation',
+        min: 0,
+        max: 100,
+        step: 1
+    }, {
+        name: 'luminosity',
+        min: 0,
+        max: 100,
+        step: 1
+    }
+];
 
 var ColorPicker = React.createClass({
-
-    //getInitialState is invoked before the component is mounted
-    //don't put props in here
-    getInitialState: function() {
-
-        //TODO: AJAX request to get intial palettes and images
-        return {
-            // return data
-        };
-    },
-
-    //custom function called when rendered
-    getContent: function() {
-        if(this.props.reverse) {
-            return this.state.bluebirdBody.split('').reverse().join('');
-        } else {
-            return this.state.bluebirdBody;
-        }
-    },
-
-    // called by onChange
-    handlePaletteChange: function(newPalette) {
-        ColorPickerActions.inputChange(newPalette);
-        //below is old (non-FLUX) way
-        //this.state({bluebirdBody: newValue});
-    },
-
-    componentDidMount: function() {
-        this.unsubscribe = ColorPickerStore.listen(this.onPaletteChange);
-    },
-
-    // not sure why I need this
-    componentWillUnMount: function () {
-        this.unsubscribe();
-    },
-
-    onPaletteChange: function(newPalette) {
-        this.setState({ newPalette: newPalette});
-    },
-
     render: function() {
+        var oldColor = this.props.oldColor,
+            newColor = this.props.newColor,
+            colorIndex = this.props.colorIndex;
+
         return (
             <div className="color-picker">
-                <div className="col-xs-1">
-                    <Palette palette={this.rainbowPalette} />
+                <div className="swatches">
+                    <div className="swatch old"
+                        style={{backgroundColor: colorArrayToBackground(oldColor, 'rgb')}} />
+                    <div className="swatch no-hue"
+                        style={{backgroundColor: colorArrayToBackground(newColor, 'hsl', 'no-hue')}} />
+
+                    <div className="swatch new"
+                        style={{backgroundColor: colorArrayToBackground(newColor, 'hsl')}} />
                 </div>
-                <div className="col-xs-1">
-                    <Palette palette={this.newPalette} />
-                </div>
-                <div className="col-xs-1">
-                    <Palette palette={this.newPalette} noChroma={true} />
-                </div>
-                <div className="col-xs-4">
-                </div>
+                {
+                    colorParts.map(function(part, i) {
+                        return (
+                            <Slider value={newColor[i]}
+                                    part={part}
+                                    colorIndex={colorIndex}
+                                    key={i}
+                                    colorPartIndex={i}
+                            />
+                        )
+                    })
+                }
+
             </div>
-        );
+        )
     }
 });
 
