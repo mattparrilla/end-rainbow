@@ -1,11 +1,24 @@
 var React = require('react'),
-    Reflux = require('reflux'),
-    PalettePicker = require('./PalettePicker'),
-    Actions = require('../Actions'),
-    Store = require('../Store');
+    $ = require('jquery'),
+    PalettePicker = require('./PalettePicker');
+
 
 var Container = React.createClass({
-    mixins: [Reflux.connect(Store)],
+    getInitialState: function() {
+        return {
+            nwsPalette: [],
+            newPalette: [],
+            testImages: '',
+            newImages: ''
+        }
+    },
+    componentDidMount: function() {
+        $.getJSON('/palette/', function(data) {
+            if (this.isMounted()) {
+                this.setState(data);
+            }
+        }.bind(this));
+    },
     render: function() {
         return (
             <div className="color-picker">

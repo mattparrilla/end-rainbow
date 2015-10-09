@@ -11,8 +11,9 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.jsx$/,
-                loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel'
             }, {
                 test: /\.json$/,
                 loader: 'json-loader'
@@ -23,7 +24,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx'] 
     },
     node: {
         console: true,

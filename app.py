@@ -12,8 +12,8 @@ app = Flask(__name__)
 def index():
     """Main view, the only view serving HTML"""
 
-    old_gif = 'static/test-radar2.gif'
-    new_gif = 'static/new-radar.gif'
+    old_gif = 'static/images/test-radar2.gif'
+    new_gif = 'static/images/new-radar.gif'
     image = Image.open(old_gif)
     new_im = change_palette(image, nws_palette('rgb'), new_palette('rgb'))
     new_im.save(new_gif, "GIF")

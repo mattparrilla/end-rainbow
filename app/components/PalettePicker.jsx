@@ -4,21 +4,27 @@ var React = require('react'),
 var PalettePicker = React.createClass({
     propTypes: {
         newPalette: React.PropTypes.array,
-        oldPalette: React.PropTypes.array
+        oldPalette: React.PropTypes.array,
     },
+    handleColorChange: function(index, color) {
+        this.setState({
+            nwsPalette: this.props.oldPalette,
+            newPalette: this.props.newPalette
+        });
+    },
+
     render: function() {
-        var newPalette = this.props.newPalette,
-            oldPalette = this.props.oldPalette,
-            colorPickers = newPalette.map(function(color, i) {
+        var colorPickers = this.props.newPalette.map(function(color, i) {
                 return (
                     <ColorPicker key={i}
-                                 colorIndex={i}
-                                 oldColor={oldPalette[i]}
-                                 newColor={newPalette[i]} />
+                                 onChange={this.handleColorChange.bind(null, i)}
+                                 oldColor={this.props.oldPalette[i]}
+                                 newColor={color} />
                 )
-            });
+            }.bind(this));
+
         return (
-            <div className="new-palette-picker">
+            <div className='new-palette-picker'>
                 {colorPickers}
             </div>
         );
