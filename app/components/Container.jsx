@@ -1,15 +1,15 @@
-var React = require('react'),
-    $ = require('jquery'),
-    PalettePicker = require('./PalettePicker');
+const React = require('react');
+const PalettePicker = require('./PalettePicker');
+const $ = require('jquery');
 
-var Container = React.createClass({
+const Container = React.createClass({
     getInitialState: function() {
         return {
             nwsPalette: [],
             newPalette: [],
             testImages: '',
-            newImages: ''
-        }
+            newImages: '',
+        };
     },
     componentDidMount: function() {
         $.getJSON('/palette/', function(data) {
@@ -28,7 +28,7 @@ var Container = React.createClass({
                 </div>
             </div>
         );
-    }
+    },
 });
 
 module.exports = Container;
