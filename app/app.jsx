@@ -1,7 +1,8 @@
 var React = require('react'),
-    Container = require('./components/Container');
+    Container = require('./components/Container'),
+    styles = require('./styles/style.scss');
 
 React.render(
-    <Container></Container>,
+    <Container />,
     document.getElementById('end-rainbow')
 )

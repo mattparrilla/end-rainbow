@@ -2,7 +2,6 @@ var React = require('react'),
     $ = require('jquery'),
     PalettePicker = require('./PalettePicker');
 
-
 var Container = React.createClass({
     getInitialState: function() {
         return {
