@@ -1,41 +1,23 @@
 module.exports = {
     context: __dirname + "/app",
-    entry: {
-        app: "./app.jsx"
-    },
+    entry: './app.jsx',
     output: {
-        path: __dirname + "/static",
-        publicPath: 'static',
+        path: __dirname + "/dist",
+        publicPath: 'dist',
         filename: "[name].bundle.js"
     },
     module: {
-        preloaders: [
-            {test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/}
-        ],
         loaders: [
             {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'babel'
-            }, {
-                test: /\.json$/,
-                loader: 'json-loader'
+                test: /\.jsx$/,
+                loader: 'babel-loader'
             }, {
                 test: /\.scss$/,
-                loader: 'style!css!sass'
+                loaders: ["style", "css", "sass"]
             }
-        ]
+        ],
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
-    },
-    node: {
-        console: true,
-        fs: 'empty',
-        net: 'empty',
-        tls: 'empty'
-    },
-    eslint: {
-        configFile: '.eslintrc'
     }
 };
