@@ -1,5 +1,4 @@
 from PIL import Image
-from palettes.test import new_palette
 from palettes.nws import nws_palette
 import colorsys
 
@@ -33,6 +32,7 @@ def hsla_to_rgb(palette):
     new_palette_rgb = []
 
     for color in palette:
+        print color
         normalized_color = colorsys.hls_to_rgb(
             color[0] / 360.0, color[2] / 100.0, color[1] / 100.0)
         scaled_palette = [int(i * 255) for i in normalized_color]
@@ -43,10 +43,10 @@ def hsla_to_rgb(palette):
 
 def make_sample_image(palette):
 
-    old_gif = 'static/test-radar2.gif'
-    new_gif = 'static/new-radar.gif'
+    old_gif = 'static/images/test-radar2.gif'
+    new_gif = 'static/images/new-radar.gif'
     image = Image.open(old_gif)
-    new_im = change_palette(image, nws_palette('rgb'), new_palette('rgb'))
+    new_im = change_palette(image, nws_palette('rgb'), palette)
     new_im.save(new_gif, "GIF")
 
     return new_gif

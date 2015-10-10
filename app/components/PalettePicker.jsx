@@ -5,13 +5,12 @@ const PalettePicker = React.createClass({
     propTypes: {
         oldPalette: React.PropTypes.array,
         newPalette: React.PropTypes.array,
+        onPaletteChange: React.PropTypes.func,
     },
     handleColorChange: function(index, color) {
-        console.log(index, color);
-        this.setState({
-            nwsPalette: this.props.oldPalette,
-            newPalette: this.props.newPalette,
-        });
+        const updatedPalette = this.props.newPalette;
+        updatedPalette[index] = color;
+        this.props.onPaletteChange(updatedPalette);
     },
 
     render: function() {

@@ -48,7 +48,7 @@ const ColorPicker = React.createClass({
         const color = this.props.newColor;
         ['hue', 'saturation', 'luminosity'].forEach(function(item, index) {
             if (name === item) {
-                color[index] = value;
+                color[index] = parseInt(value, 10);
             }
         });
         this.props.onChange(color);
@@ -66,6 +66,7 @@ const ColorPicker = React.createClass({
                     <div className="swatch new"
                         style={{backgroundColor: colorArrayToBackground(this.props.newColor, 'hsl')}} />
                 </div>
+
                 {
                     colorParts.map(function(part, i) {
                         return (
