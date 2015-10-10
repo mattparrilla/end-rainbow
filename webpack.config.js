@@ -2,8 +2,8 @@ module.exports = {
     context: __dirname + "/app",
     entry: './app.jsx',
     output: {
-        path: __dirname + "/dist",
-        publicPath: 'dist',
+        path: __dirname + "/static",
+        publicPath: 'static',
         filename: "[name].bundle.js"
     },
     module: {
