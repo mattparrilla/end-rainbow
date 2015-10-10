@@ -69,7 +69,7 @@ const ColorPicker = React.createClass({
                 {
                     colorParts.map(function(part, i) {
                         return (
-                            <Slider value={this.props.newColor[i]}
+                            <Slider value={parseInt(this.props.newColor[i], 10)}
                                     part={part}
                                     key={i}
                                     onChange={this.handleSliderChange}
