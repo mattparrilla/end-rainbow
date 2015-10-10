@@ -1,6 +1,5 @@
 var React = require('react'),
-    Container = require('./components/Container'),
-    styles = require('./styles/style.scss');
+    Container = require('./components/Container');
 
 React.render(
     <Container></Container>,
