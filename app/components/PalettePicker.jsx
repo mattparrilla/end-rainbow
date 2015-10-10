@@ -3,7 +3,6 @@ var React = require('react'),
 
 var PalettePicker = React.createClass({
     propTypes: {
-        newPalette: React.PropTypes.array,
         oldPalette: React.PropTypes.array,
     },
     handleColorChange: function(index, color) {

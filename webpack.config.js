@@ -9,10 +9,13 @@ module.exports = {
         filename: "[name].bundle.js"
     },
     module: {
+        preloaders: [
+            {test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/}
+        ],
         loaders: [
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /node_modules/,
                 loader: 'babel'
             }, {
                 test: /\.json$/,
@@ -24,12 +27,15 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.jsx'] 
+        extensions: ['', '.js', '.jsx']
     },
     node: {
         console: true,
         fs: 'empty',
         net: 'empty',
         tls: 'empty'
+    },
+    eslint: {
+        configFile: '.eslintrc'
     }
 };

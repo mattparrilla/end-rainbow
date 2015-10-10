@@ -30805,7 +30805,6 @@
 	    displayName: 'PalettePicker',
 
 	    propTypes: {
-	        newPalette: React.PropTypes.array,
 	        oldPalette: React.PropTypes.array
 	    },
 	    handleColorChange: function handleColorChange(index, color) {
