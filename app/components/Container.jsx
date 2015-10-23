@@ -33,10 +33,7 @@ const Container = React.createClass({
                     newPalette: newPalette,
                     newImageSrc: data.newImageSrc,
                 });
-            }.bind(this),
-            error: function(xhr, status, err) {
-                console.error(url, status, err.toString());
-            },
+            }.bind(this)
         });
     },
 

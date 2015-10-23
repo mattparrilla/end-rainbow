@@ -11,10 +11,7 @@ const colorArrayToBackground = function(color, colorSpace, noHue) {
         } else {
             newColor = 'hsl(' + color[0] + ', ' + color[1] + '%, ' + color[2] + '%)';
         }
-    } else {
-        console.error('Getting unexpected input for color');
     }
-
     return newColor;
 };
 
@@ -58,13 +55,19 @@ const ColorPicker = React.createClass({
         return (
             <div className="color-picker">
                 <div className="swatches">
-                    <div className="swatch old"
-                        style={{backgroundColor: colorArrayToBackground(this.props.oldColor, 'rgb')}} />
-                    <div className="swatch no-hue"
-                        style={{backgroundColor: colorArrayToBackground(this.props.newColor, 'hsl', 'no-hue')}} />
+                    <div className="column old-column">
+                        <div className="swatch"
+                            style={{backgroundColor: colorArrayToBackground(this.props.oldColor, 'rgb')}} />
+                    </div>
+                    <div className="column no-hue-column">
+                        <div className="swatch"
+                            style={{backgroundColor: colorArrayToBackground(this.props.newColor, 'hsl', 'no-hue')}} />
+                    </div>
 
-                    <div className="swatch new"
-                        style={{backgroundColor: colorArrayToBackground(this.props.newColor, 'hsl')}} />
+                    <div className="column new-column">
+                        <div className="swatch"
+                            style={{backgroundColor: colorArrayToBackground(this.props.newColor, 'hsl')}} />
+                    </div>
                 </div>
 
                 {
