@@ -1,1 +1,9 @@
-/Users/mp/.eslintrc
+{
+    "extends": "airbnb",
+    "rules": {
+        "indent": [1, 4],
+        "id-length": 0,
+        "func-names": 0,
+        "comma-dangle": 0
+    }
+}
