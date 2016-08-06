@@ -47,6 +47,6 @@ def make_sample_image(palette):
     new_gif = 'static/images/new-radar.gif'
     image = Image.open(old_gif)
     new_im = change_palette(image, nws_palette('rgb'), palette)
-    new_im.save(new_gif, "GIF")
+    new_im.save(new_gif, "GIF", transparency=0)
 
     return new_gif

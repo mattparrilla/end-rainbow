@@ -17,7 +17,7 @@ def index():
     new_gif = 'static/images/new-radar.gif'
     image = Image.open(old_gif)
     new_im = change_palette(image, nws_palette('rgb'), new_palette('rgb'))
-    new_im.save(new_gif, "GIF")
+    new_im.save(new_gif, "GIF", transparency=0)
 
     return render_template('index.html',
         old_gif=old_gif,
