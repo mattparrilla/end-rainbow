@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mattparrilla/end-rainbow#readme",
   "dependencies": {
-    "jquery": "^2.1.4",
+    "jquery": "^3.0.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0"
   },
